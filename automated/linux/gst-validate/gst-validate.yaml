@@ -1,0 +1,42 @@
+metadata:
+    format: Lava-Test Test Definition 1.0
+    name: gst-validate
+    description: "A suite of tools to run integration tests for Gstreamer,
+                  For more information: https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-validate/html/"
+    maintainer:
+        - anibal.limon@linaro.org
+    os:
+        - openembedded
+    scope:
+        - functional
+    devices:
+        - dragonboard410c
+
+# MAIN_DIR:
+# * Directory where gst-validate will run, needs to contain gst-integration-testsuites,
+#   https://cgit.freedesktop.org/gstreamer/gst-integration-testsuites
+# OPTIONS:
+# * -nd: To execute without display attached required Xvfb
+# * -v: Verbose mode
+# * -j: To execute only one job a time, avoid OOM
+# GST_INTEGRATION_SUITES:
+# * URL with the tarball of Gstreamer integration suites (cases, media),
+#   https://github.com/GStreamer/gst-integration-testsuites
+params:
+    MAIN_DIR: "/gst-validate"
+    OPTIONS: "-nd -v -j 1"
+    GST_INTEGRATION_SUITES: "http://testdata.validation.linaro.org/gst-validate/gst-integration-testsuites_1.12.tar.gz"
+
+run:
+    steps:
+        - wget ${GST_INTEGRATION_SUITES}
+        - tar -xzf $(basename ${GST_INTEGRATION_SUITES}) -C /
+        - gst-validate-launcher -M ${MAIN_DIR} ${OPTIONS} || true
+
+parse:
+    pattern: '(?P<test_case_id>validate\..*):\s+(?P<result>(Failed|Passed|Skipped|Timeout))'
+    fixupdict:
+        Failed: fail
+        Passed: pass
+        Skipped: skip
+        Timeout: fail
