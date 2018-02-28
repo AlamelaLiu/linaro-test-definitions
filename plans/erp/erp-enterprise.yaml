@@ -21,17 +21,17 @@ metadata:
 
 tests:
   automated:
-    - path: automated/linux/docker/docker.yaml
+    - path: auto-test/linux/docker/docker.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
-    - path: automated/linux/dsdbench/dsdbench.yaml
+    - path: auto-test/linux/dsdbench/dsdbench.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
-    - path: automated/linux/openjdk/openjdk-smoke.yaml
+    - path: auto-test/linux/openjdk/openjdk-smoke.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
-    - path: automated/linux/lamp/lamp.yaml
+    - path: auto-test/linux/lamp/lamp.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
-    - path: automated/linux/lamp/lamp.yaml
+    - path: auto-test/linux/lamp/lamp.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
-    - path: automated/linux/lemp/lemp.yaml
+    - path: auto-test/linux/lemp/lemp.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
   manual:
     - path: manual/generic/linux/openssh-centos.yaml

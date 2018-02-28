@@ -11,11 +11,11 @@ metadata:
 
 tests:
   automated:
-    - path: automated/linux/24h-stress-test/24h-stress-test.yaml
+    - path: auto-test/linux/24h-stress-test/24h-stress-test.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       parameters:
           TEST: stress_ng
-    - path: automated/linux/24h-stress-test/24h-stress-test.yaml
+    - path: auto-test/linux/24h-stress-test/24h-stress-test.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       parameters:
           TEST: stress_oom

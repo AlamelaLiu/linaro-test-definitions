@@ -1,0 +1,58 @@
+metadata:
+    name: ltp
+    format: "Lava-Test-Shell Test Definition 1.0"
+    description: "Run LTP test suite on Ubuntu"
+    maintainer:
+        - milosz.wasilewski@linaro.org
+        - fathi.boudra@linaro.org
+    os:
+        - ubuntu
+    scope:
+        - functional
+    devices:
+        - panda
+        - panda-es
+        - arndale
+        - vexpress-a9
+        - vexpress-tc2
+        - ifc6410
+params:
+    # LTP version
+    LTP_VERSION: 20170929
+    TST_CMDFILES: syscalls,mm,math,timers,fcntl-locktests,ipc,fsx,fs,hugetlb,io,nptl,pty,containers,fs_bind,filecaps,admin_tools,connectors
+
+    # SKIPFILE can be a filename from dir ./auto-test/linux/ltp/, an http URL,
+    # or a skipgen style yaml file.
+    # Examples:
+    #   SKIPFILE: "skipfile-lsk-juno" # is a known file present in
+    #                                 # dir ./auto-test/linux/ltp/
+    #   SKIPFILE: "http://people.linaro.org/~naresh.kamboju/skipfile"
+    #   SKIPFILE: "skipfile-lkft.yaml" # yaml file that will be parsed with
+    #                                  # skipgen. Must use "yaml" extention.
+    # NOTE: busybox wget may not work with https link so prefer to use http
+    SKIPFILE: ""
+
+    # BOARD, BRANCH, and ENVIRONMENT may be specified and may be used when
+    # generating a skipfile using a yaml skipfile and skipgen.
+    BOARD: ""
+    BRANCH: ""
+    ENVIRONMENT: ""
+
+    SKIP_INSTALL: false
+    # Slow machines need more timeout Default is 5min and multiply * TIMEOUT_MULTIPLIER
+    TIMEOUT_MULTIPLIER: 1
+    # root's password. Needed by ltp/su01.
+    ROOT_PASSWD: root
+
+run:
+    steps:
+        - cd ./auto-test/linux/ltp/
+        - ./ltp.sh -T "${TST_CMDFILES}" -s "${SKIP_INSTALL}" -v "${LTP_VERSION}" -M "${TIMEOUT_MULTIPLIER}" -R "${ROOT_PASSWD}" -b "${BOARD}" -g "${BRANCH}" -e "${ENVIRONMENT}" -S "${SKIPFILE}"
+        - ../../utils/send-to-lava.sh ./output/result.txt
+
+parse:
+    pattern: "^(?!.+ED)(?P<test_case_id>\\w+)\\s+(?P<result>PASS|FAIL|CONF)\\s+\\d+"
+    fixupdict:
+        FAIL: fail
+        PASS: pass
+        CONF: skip

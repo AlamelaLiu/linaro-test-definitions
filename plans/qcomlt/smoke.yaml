@@ -11,23 +11,23 @@ metadata:
 
 tests:
   automated:
-    - path: automated/linux/smoke/smoke.yaml
+    - path: auto-test/linux/smoke/smoke.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       timeout: 1200
-    - path: automated/linux/usb-smoke/usb-smoke-test.yaml
+    - path: auto-test/linux/usb-smoke/usb-smoke-test.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       timeout: 1200
-    - path: automated/linux/wlan-smoke/wlan-smoke.yaml
+    - path: auto-test/linux/wlan-smoke/wlan-smoke.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       timeout: 1200
-    - path: automated/linux/hci-smoke/hci-smoke.yaml
+    - path: auto-test/linux/hci-smoke/hci-smoke.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       timeout: 1200
       params:
           BOOT: auto
-    - path: automated/linux/toolchain-smoke/toolchain-smoke.yaml
+    - path: auto-test/linux/toolchain-smoke/toolchain-smoke.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       timeout: 1200
-    - path: automated/linux/device-tree/device-tree.yaml
+    - path: auto-test/linux/device-tree/device-tree.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       timeout: 1200

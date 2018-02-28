@@ -21,32 +21,32 @@ metadata:
 
 tests:
   automated:
-    - path: automated/linux/smoke/smoke.yaml
+    - path: auto-test/linux/smoke/smoke.yaml
       timeout: 1800
       repository: https://git.linaro.org/qa/test-definitions.git
-    - path: automated/linux/libhugetlbfs/libhugetlbfs.yaml
+    - path: auto-test/linux/libhugetlbfs/libhugetlbfs.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
-    - path: automated/linux/toolchain-smoke/toolchain-smoke.yaml
+    - path: auto-test/linux/toolchain-smoke/toolchain-smoke.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
-    - path: automated/linux/toolchain-smoke/toolchain-smoke.yaml
+    - path: auto-test/linux/toolchain-smoke/toolchain-smoke.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       parameters:
           STATIC: True
-    - path: automated/linux/pointer-tagging/pointer-tagging-tests.yaml
+    - path: auto-test/linux/pointer-tagging/pointer-tagging-tests.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
-    - path: automated/linux/kernel-compilation/kernel-compilation.yaml
+    - path: auto-test/linux/kernel-compilation/kernel-compilation.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
-    - path: automated/linux/disk-partitioning/disk-partitioning.yaml
+    - path: auto-test/linux/disk-partitioning/disk-partitioning.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       parameters:
           DEVICE: /dev/sdb
-    - path: automated/linux/disk-partitioning/disk-partitioning.yaml
+    - path: auto-test/linux/disk-partitioning/disk-partitioning.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       parameters:
           DEVICE: /dev/sdb
           FILESYSTEM: fat32
           SKIP_INSTALL: True
-    - path: automated/linux/network-basic/network-basic.yaml
+    - path: auto-test/linux/network-basic/network-basic.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
   manual:
     - path: manual/generic/linux/luvos.yaml

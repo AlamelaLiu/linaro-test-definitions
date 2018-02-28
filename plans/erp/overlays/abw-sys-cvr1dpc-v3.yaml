@@ -16,7 +16,7 @@ metadata:
 
 skip:
       # Skip disk-partitioning test.
-    - path: automated/linux/disk-partitioning/disk-partitioning.yaml
+    - path: auto-test/linux/disk-partitioning/disk-partitioning.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
 
 amend:

@@ -18,19 +18,19 @@ metadata:
 
 tests:
   automated:
-    - path: automated/linux/smoke/smoke.yaml
+    - path: auto-test/linux/smoke/smoke.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       timeout: 900
-    - path: automated/linux/toolchain-smoke/toolchain-smoke.yaml
+    - path: auto-test/linux/toolchain-smoke/toolchain-smoke.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       timeout: 900
-    - path: automated/linux/toolchain-smoke/toolchain-smoke.yaml
+    - path: auto-test/linux/toolchain-smoke/toolchain-smoke.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       parameters:
         SKIP_INSTALL: True
         STATIC: True
       timeout: 900
-    - path: automated/linux/hackbench/hackbench.yaml
+    - path: auto-test/linux/hackbench/hackbench.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       parameters:
         ITERATION: "10"

@@ -10,19 +10,19 @@ metadata:
 
 skip:
       # Skip disk-partitioning test.
-    - path: automated/linux/disk-partitioning/disk-partitioning.yaml
+    - path: auto-test/linux/disk-partitioning/disk-partitioning.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
 
 amend:
       # Test the second network interface.
-    - path: automated/linux/network-basic/network-basic.yaml
+    - path: auto-test/linux/network-basic/network-basic.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       parameters:
           INTERFACE: enahisic2i1
 
 add:
       # Add sysbench oltp test.
-    - path: automated/linux/sysbench/sysbench.yaml
+    - path: auto-test/linux/sysbench/sysbench.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
       parameters:
           TESTS: oltp
