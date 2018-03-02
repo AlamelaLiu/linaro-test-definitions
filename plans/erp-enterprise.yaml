@@ -29,16 +29,12 @@ tests:
       repository: https://git.linaro.org/qa/test-definitions.git
     - path: auto-test/linux/lamp/lamp.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
-    - path: auto-test/linux/lamp/lamp.yaml
-      repository: https://git.linaro.org/qa/test-definitions.git
     - path: auto-test/linux/lemp/lemp.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
   manual:
     - path: manual/generic/linux/openssh-centos.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
     - path: manual/generic/linux/openssl-centos.yaml
-      repository: https://git.linaro.org/qa/test-definitions.git
-    - path: manual/enterprise/openstack-ceph.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
     - path: manual/enterprise/openstack-ceph.yaml
       repository: https://git.linaro.org/qa/test-definitions.git
